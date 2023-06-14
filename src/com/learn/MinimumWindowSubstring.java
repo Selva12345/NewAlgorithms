@@ -12,67 +12,31 @@ public class MinimumWindowSubstring {
         Map<Integer,Integer> mp=new LinkedHashMap<>();
         StringBuilder sb=new StringBuilder();
        char [] a=new  char[4];
-        System.out.println(m.minWindow("DADOBECODEBANC","ABC"));
+        System.out.println(m.minWindow("DOABECODEBABC","ABC"));
     }
-    public String minWindow(String str, String pat) {
-        int len1 = str.length();
-        int len2 = pat.length();
-
-
-        if (len1 < len2)
-        {
-            return "";
+    public String minWindow(String s, String t) {
+        int [] map = new int[128];
+        for (char c : t.toCharArray()) {
+            map[c]++;
         }
-
-        int hash_pat[] = new int[256];
-        int hash_str[] = new int[256];
-
-        for (int i = 0; i < len2; i++)
-            hash_pat[pat.charAt(i)]++;
-
-        int start = 0, start_index = -1, min_len = Integer.MAX_VALUE;
-
-
-        int count = 0;
-        for (int j = 0; j < len1 ; j++)
-        { int s=str.charAt(j);
-            hash_str[str.charAt(j)]++;
-
-            if (hash_pat[str.charAt(j)] != 0 &&
-                    hash_str[str.charAt(j)] <= hash_pat[str.charAt(j)] )
-                count++;
-
-
-            if (count == len2)
-            {
-                while ( hash_str[str.charAt(start)] > hash_pat[str.charAt(start)]
-                        || hash_pat[str.charAt(start)] == 0)
-                {
-
-                    if (hash_str[str.charAt(start)] > hash_pat[str.charAt(start)])
-                        hash_str[str.charAt(start)]--;
-                    start++;
+        int start = 0, end = 0, minStart = 0, minLen = Integer.MAX_VALUE, counter = t.length();
+        while (end < s.length()) {
+            final char c1 = s.charAt(end);
+            if (map[c1] > 0) counter--;
+            map[c1]--;
+                end++;
+            while (counter == 0) {
+                if (minLen > end - start) {
+                    minLen = end - start;
+                    minStart = start;
                 }
-
-                // update window size
-                int len_window = j - start + 1;
-                if (min_len > len_window)
-                {
-                    min_len = len_window;
-                    start_index = start;
-                }
+                final char c2 = s.charAt(start);
+                map[c2]++;
+                if (map[c2] > 0) counter++;
+                start++;
             }
         }
 
-
-        if (start_index == -1)
-        {
-            return "";
-
-        }
-
-
-        return str.substring(start_index, start_index + min_len);
-
+        return minLen == Integer.MAX_VALUE ? "" : s.substring(minStart, minStart + minLen);
     }
 }
