@@ -9,4 +9,7 @@ public enum Move {
 	Move(int val){
 	this.val=val;	
 	}
+	public int getVal(){
+		return  val;
+	}
 }

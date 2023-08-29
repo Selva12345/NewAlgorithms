@@ -8,6 +8,7 @@ public class TopKFrequentWords {
         Map<String, Integer> wordFreqMap = new HashMap<>();
         // Split the paragraph into words
         String[] words = paragraph.toLowerCase().split("\\W+");
+        String[] words2 = paragraph.toLowerCase().split("[ ,.'?\"]+");
         // Count word frequencies
         for (String word : words) {
             wordFreqMap.put(word, wordFreqMap.getOrDefault(word, 0) + 1);
