@@ -5,6 +5,11 @@ import java.util.Map;
 
 class Solution {
     public boolean isIsomorphic(String s, String t) {
+        // abdc
+        //1+1+2+2=6/4
+        //abdfcvg
+        //bd=1+2=3/2
+        //b=1/1=
         Map<Character,Character> mapper=new HashMap<>();
         Map<Character,Character> reverseVal=new HashMap<>();
 
