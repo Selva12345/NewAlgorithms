@@ -8,6 +8,6 @@ public class PerformTask implements TaskExecutor, Runnable{
 
     @Override
     public void run() {
-        System.out.println(Thread.currentThread().getName()+"");
+        System.out.println(Thread.currentThread().getName()+"tas done");
     }
 }
