@@ -11,5 +11,15 @@ public class Task {
         this.timeInEpoc=timeInEpoc;
     }
 
+    public int getUserId() {
+        return userId;
+    }
 
+    public String getUpdate() {
+        return update;
+    }
+
+    public long getTimeInEpoc() {
+        return timeInEpoc;
+    }
 }
