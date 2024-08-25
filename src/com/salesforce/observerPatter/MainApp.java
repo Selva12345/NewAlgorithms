@@ -17,6 +17,7 @@ public class MainApp {
         subscribeService.addSubscriber(user1,"Cricket");
         subscribeService.addSubscriber(user2,"Cricket");
 
+
         Publish publishService=new PublishService(serviceDto);
         publishService.publishNotification("Cricket");
 
