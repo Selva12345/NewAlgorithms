@@ -66,5 +66,5 @@ public class Ticket {
         return " Id: "+id+" Floor: "+floor+" Parking Lot Id: "+parkingLotId+" Parking Spot Id: "
                 +parkingSpotId+ "\n" +
                 " Start Time: "+startTime+" End Time: "+endTime.toString();
-    }
+    }   
 }
