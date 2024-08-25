@@ -2,6 +2,7 @@ package com.salesforce.observerPatter;
 
 public class MainApp {
     public static void main(String[] args) {
+
         ServiceDto serviceDto=new ServiceDto();
         User user=new User();
         user.setId("12");
